@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Pagar - La Burguesia </title>
+    <link rel="icon" type="image/png" href="../img/png/logo-1.png">
+    <link rel="stylesheet" type="text/css" href="../css/pagina2.css">
+    <link rel="stylesheet" type="text/css" href="../css/carrito.css">
+    <link rel="stylesheet" type="text/css" href="../css/buscador.css">
+    <link rel="stylesheet" type="text/css" href="../css/pago.css">
+    <link rel="stylesheet" type="text/css" href="../css/responsive.css">
+</head>
+<body>
+
+        <header>
+            <a href="../index.html"> <img src="../img/jpg/logo-2.jpg" width="100" height="100"/></a>
+
+            <nav class="navegacion">
+
+            <a href="../index.html"> Inicio </a>
+            <a href="pagina1.html"> Postres </a>
+            <a href="pagina2.html"> Platillos </a>
+            <a href="pagina3.html"> Banquetes </a>
+            <a href="pagina4.html"> Combos </a>
+            <div class="buscador-contenedor">
+                <button type="button" id="btnBuscar" class="btn-buscar" aria-label="Buscar">
+                    <img src="../img/png/lupa.png" width="80" height="80">
+                </button>
+                <div class="caja-busqueda" id="cajaBusqueda">
+                    <input type="text" id="inputBusqueda" placeholder="Buscar en el menu..." autocomplete="off">
+                    <div class="resultados-busqueda" id="resultadosBusqueda"></div>
+                </div>
+            </div>
+
+            <div class="carrito-contenedor">
+                <a href="carrito.html" id="btnCarrito">
+                    <img src="../img/png/carrito.png" width="80" height="80">
+                    <span id="contadorCarrito" class="badge-carrito">0</span>
+                </a>
+            </div>
+
+            <a href="login.html" id="btnCuenta"> <img src="../img/png/registrer.png" width="50" height="50"></a>
+
+            </nav>
+        </header>
+
+
+        <main class="contenido-menu">
+
+            <section class="categoria">
+
+                <h2 class="titulo-categoria"> Finalizar Compra </h2>
+
+
+                <div id="pagoVacio" class="carrito-vacio" style="display:none;">
+                    Tu carrito está vacío. <a href="pagina4.html">Ver el menú</a>
+                </div>
+
+                <form id="formPago" class="pago-layout">
+
+                    <div class="pago-formulario">
+
+                        <div class="pago-bloque">
+                            <h3>Datos de entrega</h3>
+
+                            <div class="campo-login">
+                                <label for="nombreEnvio">Nombre completo</label>
+                                <input type="text" id="nombreEnvio" required autocomplete="name">
+                            </div>
+
+                            <div class="campo-login">
+                                <label for="direccionEnvio">Dirección</label>
+                                <input type="text" id="direccionEnvio" required autocomplete="street-address">
+                            </div>
+
+                            <div class="fila-dos-campos">
+                                <div class="campo-login">
+                                    <label for="telefonoEnvio">Número de teléfono</label>
+                                    <input type="tel" id="telefonoEnvio" required autocomplete="tel">
+                                </div>
+
+                                <div class="campo-login">
+                                    <label for="numeroDocumento">Número de documento</label>
+                                    <input type="text" id="numeroDocumento" required autocomplete="off">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pago-bloque">
+                            <h3>Datos de la tarjeta</h3>
+
+                            <div class="campo-login">
+                                <label for="numeroTarjeta">Número de tarjeta</label>
+                                <input type="text" id="numeroTarjeta" required inputmode="numeric"
+                                       autocomplete="cc-number" maxlength="19" placeholder="1234 5678 9012 3456">
+                            </div>
+
+                            <div class="fila-dos-campos">
+                                <div class="campo-login">
+                                    <label for="vencimientoTarjeta">Fecha de vencimiento</label>
+                                    <input type="text" id="vencimientoTarjeta" required inputmode="numeric"
+                                           autocomplete="cc-exp" maxlength="5" placeholder="MM/AA">
+                                </div>
+
+                                <div class="campo-login">
+                                    <label for="cvvTarjeta">Código de seguridad</label>
+                                    <input type="password" id="cvvTarjeta" required inputmode="numeric"
+                                           autocomplete="cc-csc" maxlength="4" placeholder="123">
+                                    <span class="campo-ayuda">3 o 4 dígitos al reverso de la tarjeta.</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="error-login" id="errorPago"></p>
+
+                    </div>
+
+                    <aside class="pago-resumen">
+                        <h3>Resumen del pedido</h3>
+                        <div id="resumenItems" class="pago-resumen-items"></div>
+                        <div class="fila-total">
+                            <span>Total</span>
+                            <span id="resumenTotal">$0.00</span>
+                        </div>
+                        <button type="submit" class="btn-pagar btn-pagar-confirmar">Confirmar y pagar</button>
+                        <a href="carrito.html" class="pago-volver">← Volver al carrito</a>
+                    </aside>
+
+                </form>
+
+            </section>
+
+        </main>
+
+
+    <footer class="pie-pagina">
+        <hr class="linea-divisoria">
+
+            <div class="contenedor-footer">
+
+                <div class="columna-footer">
+                    <h3> Recursos</h3>
+                    <ul>
+                        <li>
+                            <a href="politicas.html"> Políticas </a>
+                        </li>
+
+                        <li>
+                            <a href="condiciones.html"> Condiciones </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="columna-footer">
+                    <h3> Sobre nosotros</h3>
+                    <ul>
+                        <li>
+                            <a href="servicios.html"> Servicios </a>
+                        </li>
+
+                        <li>
+                            <a href="clientes.html"> Clientes </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="columna-footer">
+                    <h3> Sobre Nosotros</h3>
+                    <ul>
+                        <li>
+                            <a> Número telefonico +503 7485-8338 </a>
+                        </li>
+
+                        <li>
+                            <a> Laburguesia@gmail.com </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="caja-logo-footer">
+                <img src="../img/png/logonegro.png" alt="logo negross">
+            </div>
+
+        </footer>
+
+    <script src="../js/tienda.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/carrito.js"></script>
+<script src="../js/buscador.js"></script>
+
+    <!-- Pone la "/" automáticamente en la fecha de vencimiento (ej. 12/28) -->
+    <script>
+        document.getElementById("vencimientoTarjeta").addEventListener("input", function () {
+            var d = this.value.replace(/\D/g, "").slice(0, 4);
+            if (d.length >= 3) d = d.slice(0, 2) + "/" + d.slice(2);
+            this.value = d;
+        });
+    </script>
+
+    <script src="../js/pago.js"></script>
+
+</body>
+</html>
